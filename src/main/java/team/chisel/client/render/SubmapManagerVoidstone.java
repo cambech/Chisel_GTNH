@@ -138,7 +138,7 @@ public class SubmapManagerVoidstone extends SubmapManagerBase {
         RenderBlocks ctx = overlay.createRenderContext(rendererOld, block, world);
         rb.setRenderBoundsFromBlock(block);
         if (ctx instanceof RenderBlocksCTM) {
-            rb.submap = ((RenderBlocksCTM) ctx).submap;
+            rb.submap = null; //((RenderBlocksCTM) ctx).submap;
             rb.submapSmall = ((RenderBlocksCTM) ctx).submapSmall;
         }
         return rb;
