@@ -8,12 +8,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import com.cricketcraft.chisel.api.carving.CarvingUtils;
 import com.cricketcraft.chisel.api.rendering.TextureType;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import team.chisel.ctmlib.ISubmapManager;
 import team.chisel.ctmlib.RenderBlocksCTM;
 import team.chisel.ctmlib.TextureSubmap;
 
@@ -54,9 +52,8 @@ public class SubmapManagerVoidstone extends SubmapManagerBase {
     public void registerIcons(String modName, Block block, IIconRegister register) {
         String path = modName + ":" + texture;
         if (texture == "voidstone/animated/bevel" || texture == "voidstone/animated/metalborder")
-        	submap = new TextureSubmap(register.registerIcon(path + "-ctm"), 4, 4);
-        else
-        	submap = new TextureSubmap(register.registerIcon(path), 2, 2);
+            submap = new TextureSubmap(register.registerIcon(path + "-ctm"), 4, 4);
+        else submap = new TextureSubmap(register.registerIcon(path), 2, 2);
         submapSmall = new TextureSubmap(register.registerIcon(path), 2, 2);
         bgmap = new TextureSubmap(register.registerIcon(modName + ":" + "animations/hadesX32"), 2, 2);
     }
@@ -69,8 +66,8 @@ public class SubmapManagerVoidstone extends SubmapManagerBase {
         try {
             rb.setRenderBoundsFromBlock(block);
             if (texture == "voidstone/animated/bevel" || texture == "voidstone/animated/metalborder") {
-            	rb.submap = submap;
-            	rb.submapSmall = submapSmall;
+                rb.submap = submap;
+                rb.submapSmall = submapSmall;
             }
             return rb;
         } finally {
